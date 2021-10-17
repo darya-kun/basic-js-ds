@@ -10,21 +10,26 @@ const { NotImplementedError } = require('../extensions/index.js');
  * stack.peek(); // returns the peek, but doesn't delete it, returns 1
  * stack.pop(); // returns the top element from stack and deletes it, returns 1
  * stack.pop(); // undefined
- *
+ * 
+ * * LIFO is a method where the first element is processed last and the last element is processed first.
  */
  module.exports = class Stack {
-  push(/* element */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  constructor() {
+    this.stack =  [];
   }
 
+  // adds the element to the stack
+  push(element) {
+    return this.stack.push(element);
+  }
+
+  // returns the top element from stack and deletes it, returns 1
   pop() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.stack.pop();
   }
 
+  // returns the peek, but doesn't delete it, returns 1
   peek() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.stack[this.stack.length - 1];
   }
 }
