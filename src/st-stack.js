@@ -15,12 +15,12 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
  module.exports = class Stack {
   constructor() {
-    this.stack =  [];
+    this.stack = [];
   }
 
   // adds the element to the stack
   push(element) {
-    return this.stack.push(element);
+    this.stack.push(element);
   }
 
   // returns the top element from stack and deletes it, returns 1
