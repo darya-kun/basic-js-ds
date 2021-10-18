@@ -19,7 +19,31 @@ const { NotImplementedError } = require('../extensions/index.js');
  * }
  */
 
-module.exports = function removeKFromList(/* l, k */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+module.exports = function removeKFromList(list, number) {
+  // Текущая нода списка
+  let current = list;
+
+  // Ищем пока список не закончится, т.е. его последняя нода не будет ссыылаться на null
+  while (current.next !== null) {
+    // Если значение текущей ноды равно искомому числу
+    if (current.value === number) {
+      // Переносим значение текущей ноды на следующую
+      current.value = current.next.value;
+      // Переносим следующую ноду за текущей на через одну 
+      current.next = current.next.next;
+    } else {
+      // Переходим к следующей ноде
+      current = current.next;
+    }
+  }
+  return list;
 }
+
+
+// // if l was an array solution
+// let removeKFromList = function(l, k) {
+//   let value = k;
+//   let arr = l;
+//   return  arr = arr.filter(item => item !== value);
+// }
+// console.log(removeKFromList([3, 1, 2, 3, 4, 5], 3));
